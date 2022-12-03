@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="robots" content="noindex">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<script>
+		function setViewerHeight() {
+			document.getElementById("viewer_wrapper").style.height = "calc(100% - " + (document.getElementById("image_selector").clientHeight).toString() + "px)";
+		}
+		window.addEventListener("load", setViewerHeight, true);
+		window.addEventListener("resize", setViewerHeight, true);
+	</script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/js/solid.min.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/js/fontawesome.min.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.2/openseadragon.min.js"></script>
+	<script defer src="js/three.min.js"></script>
+	<script defer src="js/dat.gui.min.js"></script>
+	<script defer src="js/stats.min.js"></script>
+	<script defer src="js/OceanShaders.js"></script>
+	<script defer src="js/sphereShader.js"></script>
+	<script defer src="js/Ocean.js"></script>
+	<script defer src="js/main.js"></script>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-4P3F4JEN28"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-4P3F4JEN28');
+	</script>
+</head>
+<title>Wave Animation Viewer</title>
+
+<body>
+	<div id="image_selector">
+		<div>
+			<div id="image_selector_icon">
+				<div id="image_selector_icon1">
+					<i class="fas fa-image"></i>
+				</div>
+				<div>
+					<h1>WaterAnim</h1>
+				</div>
+			</div>
+		</div>
+		<div>
+			<ul id="image_list">
+				<li data-id="1">1</li>
+				<li data-id="8_1">8-1</li>
+				<li data-id="8_2">8-2</li>
+				<li data-id="8_3">8-3</li>
+				<li data-id="8_4">8-4</li>
+				<li data-id="8_5">8-5</li>
+				<li data-id="9a">9a</li>
+				<li data-id="9b_1">9b-1</li>
+				<li data-id="9b_2">9b-2</li>
+				<li data-id="10a">10a</li>
+				<li data-id="10b">10b</li>
+			</ul>
+		</div>
+	</div>
+
+
+	<div id="viewer_wrapper">
+		<div id="viewer_main" class="fullPageElem">
+			<div id="image" class="fullPageElem"></div>
+			<div id="rendering_canvas" class="fullPageElem"></div>
+		</div>
+
+		<div id="warning" class="fullPageElem">
+			<div id="warning_inner">
+				<h1>Select an image from the menu</h1>
+				Supported browser: Google Chrome (latest version)<br>
+			</div>
+		</div>
+
+		<div id="full_image" class="fullPageElem">
+			<div id="full_image_inner">
+				<a id="full_image_a"><img id="full_image_img"></a>
+				<p id="full_image_close_btn_p">
+					<button id="full_image_close_btn">Close</button>
+				</p>
+			</div>
+		</div>
+
+		<div id="image_info" class="fullPageElem">
+			<div id="image_info_inner">
+				<h1>Image Information</h1>
+				<p id="image_info_content">
+					No image information
+				</p>
+				<p id="image_info_close_btn_p">
+					<button id="image_info_close_btn">Close</button>
+				</p>
+			</div>
+		</div>
+
+		<div id="viewer_controls" class="fullPageElem">
+			<div id="ref_imgs_wrapper">
+				<div id="ref_imgs_button">
+					<i id="ref_imgs_button_icon" class="fas fa-compress-alt"></i>
+				</div>
+				<div id="ref_imgs">
+					<div id="mask_img" class="img"></div>
+					<div id="tex_img" class="img"></div>
+					<div id="org_img" class="img"></div>
+				</div>
+			</div>
+			<div id="toolbar">
+				<div id="home-btn"><i class="fas fa-home"></i></div>
+				<div id="zoom-in-btn"><i class="fas fa-search-plus"></i></div>
+				<div id="zoom-out-btn"><i class="fas fa-search-minus"></i></div>
+				<div id="full-screen-btn" title="Toggle full screen mode"><i id="full-screen-btn-icon"
+						class="fas fa-expand-arrows-alt"></i></div>
+				<div id="mode-switch-btn" title="Toggle display mode"><i id="mode-switch-btn-icon"
+						class="fas fa-window-restore"></i></div>
+				<div id="info-btn" title="Image information"><i class="fas fa-info"></i></div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
